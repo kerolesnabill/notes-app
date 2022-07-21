@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import AddNoteForm from "./components/AddNoteForm";
+import Header from "./components/Header";
 import NotesList from "./components/NotesList";
 
 function App() {
@@ -58,6 +59,9 @@ function App() {
 
   return (
     <>
+      <header>
+        <Header />
+      </header>
       <section>
         <AddNoteForm onAddNote={addNoteHandler} />
       </section>

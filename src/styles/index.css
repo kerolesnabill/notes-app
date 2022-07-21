@@ -50,7 +50,8 @@ body {
   border-radius: 10px;
   box-shadow: 2px 2px 10px gray;
   max-width: 500px;
-  margin: 3rem; }
+  margin: 3rem;
+  margin-top: 10px; }
   .note__form .title,
   .note__form .content {
     outline: none;
@@ -97,5 +98,19 @@ body {
 .page__content {
   color: gray;
   text-align: center; }
+
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem; }
+  .header * {
+    width: 50px;
+    height: 50px; }
+  .header .plus {
+    width: auto;
+    margin: 13px;
+    font-size: 20px;
+    color: #35495e; }
 
 /*# sourceMappingURL=index.css.map */
