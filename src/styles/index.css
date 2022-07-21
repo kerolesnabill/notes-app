@@ -94,4 +94,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: dodgerblue; }
 
+.page__content {
+  color: gray;
+  text-align: center; }
+
 /*# sourceMappingURL=index.css.map */
