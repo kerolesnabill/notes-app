@@ -42,4 +42,56 @@ body {
       grid-template-columns: repeat(4, auto);
       padding: 0 6rem 0 6rem; } }
 
+.note__form {
+  display: block;
+  position: relative;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px gray;
+  max-width: 500px;
+  margin: 3rem; }
+  .note__form .title,
+  .note__form .content {
+    outline: none;
+    border: 0;
+    width: 100%;
+    padding-bottom: 5px;
+    resize: none; }
+  .note__form .btn {
+    display: flex;
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    right: 3%;
+    bottom: -8%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: dodgerblue;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s; }
+    .note__form .btn:hover {
+      background-color: #2473c2; }
+  @media (min-width: 576px) {
+    .note__form {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 3rem; } }
+
+::-webkit-scrollbar {
+  width: 3px; }
+
+::-webkit-scrollbar-thumb {
+  background: #999; }
+
+::-webkit-scrollbar-thumb:hover {
+  background: dodgerblue; }
+
 /*# sourceMappingURL=index.css.map */
