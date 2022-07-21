@@ -4,15 +4,13 @@ const AddNoteForm = ({ onAddNote }) => {
   const titleRef = useRef("");
   const contentRef = useRef("");
 
-  const title = titleRef.current.value;
-  const content = contentRef.current.value;
-
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
     const note = {
-      title,
-      content,
+      id: Math.floor(Math.random() * 10000),
+      title: titleRef.current.value,
+      content: contentRef.current.value,
     };
 
     onAddNote(note);
@@ -33,7 +31,7 @@ const AddNoteForm = ({ onAddNote }) => {
           rows="8"
           maxLength="500"
         ></textarea>
-        <button type="submit" className="btn">
+        <button className="btn">
           <span>+</span>
         </button>
       </div>

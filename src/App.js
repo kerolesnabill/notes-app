@@ -9,7 +9,6 @@ function App() {
 
   const getNotesHandler = useCallback(async () => {
     setIsLoading(true);
-
     try {
       const response = await fetch(
         "https://react-js-notes-app-default-rtdb.firebaseio.com/notes.json"
@@ -37,6 +36,20 @@ function App() {
     getNotesHandler();
   }, [getNotesHandler]);
 
+  const addNoteHandler = async (note) => {
+    await fetch(
+      "https://react-js-notes-app-default-rtdb.firebaseio.com/notes.json",
+      {
+        method: "POST",
+        body: JSON.stringify(note),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    getNotesHandler();
+  };
+
   let pageContent = <p>Found no notes</p>;
 
   if (isLoading) pageContent = <p>Loading...</p>;
@@ -46,7 +59,7 @@ function App() {
   return (
     <>
       <section>
-        <AddNoteForm />
+        <AddNoteForm onAddNote={addNoteHandler} />
       </section>
       <section className="page__content">{pageContent}</section>
     </>
