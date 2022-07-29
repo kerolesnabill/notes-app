@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Modal from "./UI/Modal";
 import api from "../api/api";
+import { ReactComponent as BtnDelete } from "../assets/trash.svg";
 
 const EditingForm = ({ id, title, content, onClose, onDelete, onEdit }) => {
   const [formIsValid, setFormIsValid] = useState(true);
@@ -42,11 +43,12 @@ const EditingForm = ({ id, title, content, onClose, onDelete, onEdit }) => {
         {!formIsValid && (
           <p className="text__error">This Note must not be empty.</p>
         )}
-        <div>
-          <button type="submit" onClick={editNoteHandler}>
-            Edit
+        <div className="btns__container">
+          <BtnDelete className="btn__delete" onClick={() => onDelete(id)} />
+
+          <button className="btn__edit" type="submit" onClick={editNoteHandler}>
+            Done
           </button>
-          <button onClick={() => onDelete(id)}>Delete</button>
         </div>
       </div>
     </Modal>

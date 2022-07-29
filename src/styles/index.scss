@@ -13,6 +13,7 @@ body {
 }
 
 .note {
+  position: relative;
   display: block;
   color: #000;
   background-color: #fff;
@@ -20,10 +21,33 @@ body {
   padding: 2px 1rem;
   border-radius: 10px;
   transition: all 0.3s;
+  text-align: start;
   flex: 0 0 auto;
   width: auto;
+  height: 150px;
+  margin-top: 0;
+  overflow: hidden;
+  @include breakpoints(large) {
+    height: 180px;
+  }
+  .pen {
+    position: absolute;
+    width: 1.3rem;
+    height: 1.3rem;
+    right: 2%;
+    top: 2%;
+    fill: #0000007f;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+      fill: #000000bc;
+    }
+  }
   .title {
     margin-bottom: 0;
+    margin-top: 1rem;
+    color: #000000e1;
+    font-weight: bold;
   }
   .content {
     font-weight: light;
@@ -37,16 +61,17 @@ body {
   display: grid;
   padding: 1.5rem;
   gap: 10px;
+  margin-bottom: 10rem;
   @include breakpoints(small) {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 50%);
     padding: 0 2rem 0 2rem;
   }
   @include breakpoints(medium) {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 33.3%);
     padding: 0 3rem 0 3rem;
   }
   @include breakpoints(large) {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 25%);
     padding: 0 6rem 0 6rem;
   }
 }
@@ -62,6 +87,15 @@ body {
   margin: 3rem;
   margin-top: 10px;
 
+  .title {
+    font-weight: bold;
+    font-size: medium;
+    color: #000000e1;
+  }
+  .content {
+    font-weight: normal;
+    font-size: large;
+  }
   .title,
   .content {
     outline: none;
@@ -71,6 +105,9 @@ body {
     resize: none;
     &.invalid::placeholder {
       color: red;
+    }
+    @include breakpoints(small) {
+      font-size: large;
     }
   }
   .btn {
@@ -195,12 +232,54 @@ body {
 }
 
 .edit__form {
+  .title {
+    font-weight: bold;
+  }
+
   .title,
   .content {
+    font-size: larger;
     outline: none;
     border: 0;
     width: 100%;
     padding-bottom: 5px;
     resize: none;
+  }
+
+  .btns__container {
+    display: flex;
+    justify-content: space-between;
+    .btn__delete {
+      width: 2rem;
+      height: 2rem;
+      fill: #999;
+      background-color: #9999994a;
+      border: 0;
+      font-size: medium;
+      border-radius: 6px;
+      padding: 5px;
+      padding-left: 8px;
+      padding-right: 8px;
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover {
+        background-color: #99999974;
+        fill: #ff0000c1;
+      }
+    }
+    .btn__edit {
+      background-color: #9999994a;
+      border: 0;
+      font-size: medium;
+      border-radius: 6px;
+      padding: 5px;
+      padding-left: 8px;
+      padding-right: 8px;
+      transition: all 0.3s;
+      cursor: pointer;
+      &:hover {
+        background-color: #99999974;
+      }
+    }
   }
 }

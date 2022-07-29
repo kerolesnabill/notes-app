@@ -1,5 +1,6 @@
 import { useState } from "react";
 import EditingForm from "./EditingForm";
+import { ReactComponent as Pen } from "../assets/pen.svg";
 
 const Note = ({ id, title, content, onDelete, onEdit }) => {
   const [noteIsShowen, setNoteIsShowen] = useState(false);
@@ -15,6 +16,7 @@ const Note = ({ id, title, content, onDelete, onEdit }) => {
   return (
     <>
       <li className="note" onClick={showNoteHandler}>
+        <Pen className="pen" />
         <h4 className="title">{title}</h4>
         <p className="content">{content}</p>
       </li>

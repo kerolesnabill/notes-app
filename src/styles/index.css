@@ -11,6 +11,7 @@ body {
 }
 
 .note {
+  position: relative;
   display: block;
   color: #000;
   background-color: #fff;
@@ -18,11 +19,36 @@ body {
   padding: 2px 1rem;
   border-radius: 10px;
   transition: all 0.3s;
+  text-align: start;
   flex: 0 0 auto;
   width: auto;
+  height: 150px;
+  margin-top: 0;
+  overflow: hidden;
+}
+@media (min-width: 992px) {
+  .note {
+    height: 180px;
+  }
+}
+.note .pen {
+  position: absolute;
+  width: 1.3rem;
+  height: 1.3rem;
+  right: 2%;
+  top: 2%;
+  fill: rgba(0, 0, 0, 0.4980392157);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.note .pen:hover {
+  fill: rgba(0, 0, 0, 0.737254902);
 }
 .note .title {
   margin-bottom: 0;
+  margin-top: 1rem;
+  color: rgba(0, 0, 0, 0.8823529412);
+  font-weight: bold;
 }
 .note .content {
   font-weight: light;
@@ -35,22 +61,23 @@ body {
   display: grid;
   padding: 1.5rem;
   gap: 10px;
+  margin-bottom: 10rem;
 }
 @media (min-width: 576px) {
   .note__list {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 50%);
     padding: 0 2rem 0 2rem;
   }
 }
 @media (min-width: 768px) {
   .note__list {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 33.3%);
     padding: 0 3rem 0 3rem;
   }
 }
 @media (min-width: 992px) {
   .note__list {
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 25%);
     padding: 0 6rem 0 6rem;
   }
 }
@@ -65,6 +92,15 @@ body {
   max-width: 500px;
   margin: 3rem;
   margin-top: 10px;
+}
+.note__form .title {
+  font-weight: bold;
+  font-size: medium;
+  color: rgba(0, 0, 0, 0.8823529412);
+}
+.note__form .content {
+  font-weight: normal;
+  font-size: large;
 }
 .note__form .title,
 .note__form .content {
@@ -83,6 +119,12 @@ body {
 .note__form .title.invalid::placeholder,
 .note__form .content.invalid::placeholder {
   color: red;
+}
+@media (min-width: 576px) {
+  .note__form .title,
+.note__form .content {
+    font-size: large;
+  }
 }
 .note__form .btn {
   display: flex;
@@ -216,11 +258,51 @@ body {
     transform: translateY(0);
   }
 }
+.edit__form .title {
+  font-weight: bold;
+}
 .edit__form .title,
 .edit__form .content {
+  font-size: larger;
   outline: none;
   border: 0;
   width: 100%;
   padding-bottom: 5px;
   resize: none;
+}
+.edit__form .btns__container {
+  display: flex;
+  justify-content: space-between;
+}
+.edit__form .btns__container .btn__delete {
+  width: 2rem;
+  height: 2rem;
+  fill: #999;
+  background-color: rgba(153, 153, 153, 0.2901960784);
+  border: 0;
+  font-size: medium;
+  border-radius: 6px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.edit__form .btns__container .btn__delete:hover {
+  background-color: rgba(153, 153, 153, 0.4549019608);
+  fill: rgba(255, 0, 0, 0.7568627451);
+}
+.edit__form .btns__container .btn__edit {
+  background-color: rgba(153, 153, 153, 0.2901960784);
+  border: 0;
+  font-size: medium;
+  border-radius: 6px;
+  padding: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.edit__form .btns__container .btn__edit:hover {
+  background-color: rgba(153, 153, 153, 0.4549019608);
 }/*# sourceMappingURL=index.css.map */
