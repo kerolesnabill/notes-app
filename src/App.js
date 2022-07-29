@@ -51,7 +51,9 @@ function App() {
 
   if (isLoading) pageContent = <p>Loading...</p>;
   else if (notes.length > 0)
-    pageContent = <NotesList notes={notes} onDelete={deleteNoteHandler} />;
+    pageContent = (
+      <NotesList notes={notes} onDelete={deleteNoteHandler} onEdit={getNotes} />
+    );
   else if (error) pageContent = <p className="text__error">{error}</p>;
 
   return (

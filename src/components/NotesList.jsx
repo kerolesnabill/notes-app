@@ -1,6 +1,6 @@
 import Note from "./Note";
 
-const NotesList = ({ notes, onDelete }) => {
+const NotesList = ({ notes, onDelete, onEdit }) => {
   return (
     <ul className="note__list">
       {notes.map((note) => (
@@ -10,6 +10,7 @@ const NotesList = ({ notes, onDelete }) => {
           content={note.content}
           id={note.id}
           onDelete={onDelete}
+          onEdit={onEdit}
         />
       ))}
     </ul>
