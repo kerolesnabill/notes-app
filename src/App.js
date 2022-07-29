@@ -2,60 +2,57 @@ import { useCallback, useEffect, useState } from "react";
 import AddNoteForm from "./components/AddNoteForm";
 import Header from "./components/Header";
 import NotesList from "./components/NotesList";
+import api from "./api/api";
 
 function App() {
   const [notes, setNotes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const getNotesHandler = useCallback(async () => {
+  const getNotes = useCallback(async () => {
     setIsLoading(true);
-    try {
-      const response = await fetch(
-        "https://react-js-notes-app-default-rtdb.firebaseio.com/notes.json"
-      );
-      if (!response.ok) throw new Error("Something went wrong!");
+    await api
+      .get("/notes.json")
+      .then((response) => {
+        const data = response.data;
 
-      const data = await response.json();
-      const loadedNotes = [];
+        const loadedNotes = [];
 
-      for (const key in data) {
-        loadedNotes.push({
-          id: data[key].id,
-          title: data[key].title,
-          content: data[key].content,
-        });
-      }
-      setNotes(loadedNotes);
-    } catch (error) {
-      setError(error.message);
-    }
+        for (const key in data) {
+          loadedNotes.push({
+            id: data[key].id,
+            title: data[key].title,
+            content: data[key].content,
+          });
+        }
+        setNotes(loadedNotes);
+      })
+      .catch((error) => setError(error.message));
     setIsLoading(false);
   }, []);
 
   useEffect(() => {
-    getNotesHandler();
-  }, [getNotesHandler]);
+    getNotes();
+  }, [getNotes]);
 
   const addNoteHandler = async (note) => {
-    await fetch(
-      "https://react-js-notes-app-default-rtdb.firebaseio.com/notes.json",
-      {
-        method: "POST",
-        body: JSON.stringify(note),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    getNotesHandler();
+    const res = await api.post("/notes.json", note);
+    const id = res.data.name;
+    await api.put(`notes/${id}.json`, { ...note, id: `${id}` });
+    getNotes();
+  };
+
+  const deleteNoteHandler = async (id) => {
+    await api.delete(`notes/${id}.json`);
+    getNotes();
   };
 
   let pageContent = <p>Found no notes</p>;
 
   if (isLoading) pageContent = <p>Loading...</p>;
-  else if (notes.length > 0) pageContent = <NotesList notes={notes} />;
-  else if (error) pageContent = <p>{error}</p>;
+  else if (notes.length > 0)
+    pageContent = <NotesList notes={notes} onDelete={deleteNoteHandler} />;
+  else if (error) pageContent = <p className="text__error">{error}</p>;
 
   return (
     <>
