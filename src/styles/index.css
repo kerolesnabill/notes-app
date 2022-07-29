@@ -2,11 +2,13 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Roboto", sans-serif, Courier, monospace;
-  background-color: #ded9d9; }
+  background-color: #ded9d9;
+}
 
 .note {
   display: block;
@@ -17,30 +19,41 @@ body {
   border-radius: 10px;
   transition: all 0.3s;
   flex: 0 0 auto;
-  width: auto; }
-  .note .title {
-    margin-bottom: 0; }
-  .note .content {
-    font-weight: light; }
-  .note:hover {
-    box-shadow: 2px 2px 10px gray; }
+  width: auto;
+}
+.note .title {
+  margin-bottom: 0;
+}
+.note .content {
+  font-weight: light;
+}
+.note:hover {
+  box-shadow: 2px 2px 10px gray;
+}
 
 .note__list {
   display: grid;
   padding: 1.5rem;
-  gap: 10px; }
-  @media (min-width: 576px) {
-    .note__list {
-      grid-template-columns: repeat(2, auto);
-      padding: 0 2rem 0 2rem; } }
-  @media (min-width: 768px) {
-    .note__list {
-      grid-template-columns: repeat(3, auto);
-      padding: 0 3rem 0 3rem; } }
-  @media (min-width: 992px) {
-    .note__list {
-      grid-template-columns: repeat(4, auto);
-      padding: 0 6rem 0 6rem; } }
+  gap: 10px;
+}
+@media (min-width: 576px) {
+  .note__list {
+    grid-template-columns: repeat(2, auto);
+    padding: 0 2rem 0 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .note__list {
+    grid-template-columns: repeat(3, auto);
+    padding: 0 3rem 0 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .note__list {
+    grid-template-columns: repeat(4, auto);
+    padding: 0 6rem 0 6rem;
+  }
+}
 
 .note__form {
   display: block;
@@ -51,66 +64,103 @@ body {
   box-shadow: 2px 2px 10px gray;
   max-width: 500px;
   margin: 3rem;
-  margin-top: 10px; }
-  .note__form .title,
-  .note__form .content {
-    outline: none;
-    border: 0;
-    width: 100%;
-    padding-bottom: 5px;
-    resize: none; }
-  .note__form .btn {
-    display: flex;
-    position: absolute;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    right: 3%;
-    bottom: -8%;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background-color: dodgerblue;
-    font-size: 2rem;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s; }
-    .note__form .btn:hover {
-      background-color: #2473c2; }
-  @media (min-width: 576px) {
-    .note__form {
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 3rem; } }
+  margin-top: 10px;
+}
+.note__form .title,
+.note__form .content {
+  outline: none;
+  border: 0;
+  width: 100%;
+  padding-bottom: 5px;
+  resize: none;
+}
+.note__form .title.invalid::-moz-placeholder, .note__form .content.invalid::-moz-placeholder {
+  color: red;
+}
+.note__form .title.invalid:-ms-input-placeholder, .note__form .content.invalid:-ms-input-placeholder {
+  color: red;
+}
+.note__form .title.invalid::placeholder,
+.note__form .content.invalid::placeholder {
+  color: red;
+}
+.note__form .btn {
+  display: flex;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  right: 3%;
+  bottom: -8%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: dodgerblue;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.note__form .btn:hover {
+  background-color: #2473c2;
+}
+.note__form .btn:disabled {
+  opacity: 0.75;
+}
+.note__form .btn:disabled:hover {
+  background-color: dodgerblue;
+  cursor: not-allowed;
+}
+@media (min-width: 576px) {
+  .note__form {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+  }
+}
 
 ::-webkit-scrollbar {
-  width: 3px; }
+  width: 3px;
+}
 
 ::-webkit-scrollbar-thumb {
-  background: #999; }
+  background: #999;
+}
 
 ::-webkit-scrollbar-thumb:hover {
-  background: dodgerblue; }
+  background: dodgerblue;
+}
 
 .page__content {
   color: gray;
-  text-align: center; }
+  text-align: center;
+}
 
 .header {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-top: 2rem; }
-  .header * {
-    width: 50px;
-    height: 50px; }
-  .header .plus {
-    width: auto;
-    margin: 13px;
-    font-size: 20px;
-    color: #35495e; }
+  margin-top: 2rem;
+}
+.header * {
+  width: 50px;
+  height: 50px;
+}
+.header .plus {
+  width: auto;
+  margin: 13px;
+  font-size: 20px;
+  color: #35495e;
+}
 
-/*# sourceMappingURL=index.css.map */
+.text__error {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: light;
+  margin: 0;
+  padding: 2px;
+  color: red;
+}/*# sourceMappingURL=index.css.map */
