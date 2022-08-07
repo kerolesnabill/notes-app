@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/notes-app/static/css/main.077224d6.css",
+    "main.js": "/notes-app/static/js/main.c10d8d9b.js",
+    "static/media/sass.svg": "/notes-app/static/media/sass.8aa78a8393470431c8036541f0708bd7.svg",
+    "static/media/react.svg": "/notes-app/static/media/react.e68b35f4774979ae220b1d5d7b345b00.svg",
+    "static/media/firebase.svg": "/notes-app/static/media/firebase.e6583a29712875c8977afcba1d0b6883.svg",
+    "static/media/trash.svg": "/notes-app/static/media/trash.66c3f25b888bf5f88a0f5788b021f366.svg",
+    "static/media/pen.svg": "/notes-app/static/media/pen.7a61ab7598a4c418d4f26fc78f1162d5.svg",
+    "index.html": "/notes-app/index.html",
+    "main.077224d6.css.map": "/notes-app/static/css/main.077224d6.css.map",
+    "main.c10d8d9b.js.map": "/notes-app/static/js/main.c10d8d9b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.077224d6.css",
+    "static/js/main.c10d8d9b.js"
+  ]
+}
